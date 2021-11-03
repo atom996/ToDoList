@@ -8,18 +8,34 @@
       const theList = [];
 
       function addList(){
-        theList.push("test");
+        var taskBox = document.getElementById("taskitem").value;
+        var completeEntry = taskBox.toString();
+        theList.push(completeEntry);
         document.getElementById("listContents").innerHTML = theList.join("<br>");
-        //alert('Pushed!');
+        alert('Pushed!');
       }
     </script>
   </head>
   <body>
+
     <h1 id="toDoListHeader" style="text-align: center;"> TODO LIST </h1>
+
+    <form style="text-align: center;">
+     <label for="taskitem">Task:</label><br>
+     <input type="text" id="taskitem" name="taskitem"><br>
+     <!--Checkboxes-->
+     <input type="checkbox" id="priority1" name="priority1" value="High">
+     <label for="priority1"> High Priority </label><br>
+     <input type="checkbox" id="priority2" name="priority2" value="Medium">
+     <label for="priority1"> Medium Priority </label><br>
+     <input type="checkbox" id="priority3" name="priority3" value="Low">
+     <label for="priority1"> Low Priority </label><br>
+    </form>
+
+    <p style="text-align: center"><button type="button" onclick="addList()">Button</button></p>
 
     <p id="listContents" style="text-align: center"></p>
 
-    <p style="text-align: center"><button type="button" onclick="addList()">Button</button></p>
   </body>
 
 </html>
