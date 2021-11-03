@@ -1,4 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <h1> TODO LIST </h1>
+  <head>
+    <title>ToDoList</title>
+    <script>
+
+      //Array for List
+      const theList = [];
+
+      function addList(){
+        theList.push("test");
+        document.getElementById("listContents").innerHTML = theList.join("<br>");
+        //alert('Pushed!');
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="toDoListHeader" style="text-align: center;"> TODO LIST </h1>
+
+    <p id="listContents" style="text-align: center"></p>
+
+    <p style="text-align: center"><button type="button" onclick="addList()">Button</button></p>
+  </body>
+
 </html>
