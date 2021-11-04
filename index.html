@@ -6,14 +6,56 @@
 
       //Array for List
       const theList = [];
-
+      //AddList Functiom Start
       function addList(){
-        var taskBox = document.getElementById("taskitem").value;
-        var completeEntry = taskBox.toString();
-        theList.push(completeEntry);
-        document.getElementById("listContents").innerHTML = theList.join("<br>");
-        alert('Pushed!');
+        const checkCheckHigh = document.getElementById("priority1").checked;
+        const checkCheckMed = document.getElementById("priority2").checked;
+        const checkCheckLow = document.getElementById("priority3").checked;
+
+        if (checkCheckHigh && !(checkCheckMed) && !(checkCheckLow)) {
+          var taskBox = document.getElementById("taskitem").value;
+          const completeEntry = {
+            task: taskBox,
+            pri: "High",
+            concatTerm : function() {
+              return "Task: " + this.task + " Priority: " + this.pri;
+            }
+          };
+
+          theList.push(completeEntry.concatTerm());
+
+          document.getElementById("listContents").innerHTML = theList.join("<br>");
+        } else if (!(checkCheckHigh) && checkCheckMed && !(checkCheckLow)) {
+          var taskBox = document.getElementById("taskitem").value;
+          const completeEntry = {
+            task: taskBox,
+            pri: "Medium",
+            concatTerm : function() {
+              return "Task: " + this.task + " Priority: " + this.pri;
+            }
+          };
+
+          theList.push(completeEntry.concatTerm());
+
+          document.getElementById("listContents").innerHTML = theList.join("<br>");
+        } else if (!(checkCheckHigh) && !(checkCheckMed) && checkCheckLow) {
+          var taskBox = document.getElementById("taskitem").value;
+          const completeEntry = {
+            task: taskBox,
+            pri: "Low",
+            concatTerm : function() {
+              return "Task: " + this.task + " Priority: " + this.pri;
+            }
+          };
+
+          theList.push(completeEntry.concatTerm());
+
+          document.getElementById("listContents").innerHTML = theList.join("<br>");
+        } else {
+          alert('Error, please select one!');
+        }
       }
+      //AddList Function End
     </script>
   </head>
   <body>
